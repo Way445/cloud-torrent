@@ -1,13 +1,13 @@
 FROM alpine:edge
-LABEL maintainer="dev@jpillora.com"
+LABEL maintainer="oldiy@163.com"
 # prepare go env
 ENV GOPATH /go
 ENV NAME cloud-torrent
-ENV PACKAGE github.com/jpillora/$NAME
+ENV PACKAGE github.com/oldiy/$NAME
 ENV PACKAGE_DIR $GOPATH/src/$PACKAGE
 ENV GOLANG_VERSION 1.11.2
 ENV GOLANG_SRC_URL https://golang.org/dl/go$GOLANG_VERSION.src.tar.gz
-ENV GOLANG_SRC_SHA256 a84afc9dc7d64fe0fa84d4d735e2ece23831a22117b50dafc75c1484f1cb550e
+ENV GOLANG_SRC_SHA256 042fba357210816160341f1002440550e952eb12678f7c9e7e9d389437942550
 ENV PATH $GOPATH/bin:/usr/local/go/bin:$PATH
 ENV CGO_ENABLED 0
 # in one step (to prevent creating superfluous layers):
