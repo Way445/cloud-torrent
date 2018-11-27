@@ -34,7 +34,7 @@ curl https://i.jpillora.com/cloud-torrent! | bash
 [dockerhub]: https://hub.docker.com/r/jpillora/cloud-torrent/
 
 ``` sh
-$ docker run -d -p 3000:3000 -v /path/to/my/downloads:/downloads jpillora/cloud-torrent
+$ docker run -d -p 3000:3000 -v /path/to/my/downloads:/downloads oldiy/cloud-torrent
 ```
 
 **Source**
