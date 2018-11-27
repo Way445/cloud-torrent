@@ -25,16 +25,18 @@ RUN set -ex \
 	git \
 	go \
 	curl \
-	&& curl -s https://raw.githubusercontent.com/docker-library/golang/221ee92559f2963c1fe55646d3516f5b8f4c91a4/1.9/alpine3.6/no-pic.patch -o /no-pic.patch \
-	&& cat /no-pic.patch \
-	&& export GOROOT_BOOTSTRAP="$(go env GOROOT)" \
+	#&& curl -s https://raw.githubusercontent.com/docker-library/golang/221ee92559f2963c1fe55646d3516f5b8f4c91a4/1.9/alpine3.6/no-pic.patch -o /no-pic.patch \
+	#&& cat /no-pic.patch \
+	#&& export GOROOT_BOOTSTRAP="$(go env GOROOT)" \
 	&& wget -q "$GOLANG_SRC_URL" -O golang.tar.gz \
 	&& echo "$GOLANG_SRC_SHA256  golang.tar.gz" | sha256sum -c - \
 	&& tar -C /usr/local -xzf golang.tar.gz \
 	&& rm golang.tar.gz \
+	&& \
 	&& cd /usr/local/go/src \
-	&& patch -p2 -i /no-pic.patch \
+	#&& patch -p2 -i /no-pic.patch \
 	&& ./make.bash \
+	&& \
 	&& mkdir -p $PACKAGE_DIR \
 	&& git clone https://$PACKAGE.git $PACKAGE_DIR \
 	&& cd $PACKAGE_DIR \
